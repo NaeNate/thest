@@ -1,3 +1,4 @@
+import { domain } from "@/utils"
 import { cookies } from "next/headers"
 import Canvas from "./Canvas"
 
@@ -26,7 +27,7 @@ export default async function Callback({ searchParams: { code } }: Props) {
       body: new URLSearchParams({
         grant_type: "authorization_code",
         code,
-        redirect_uri: "http://localhost:3000/callback",
+        redirect_uri: domain(),
       }),
     },
   ).then((res) => res.json())

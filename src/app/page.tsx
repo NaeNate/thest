@@ -1,3 +1,4 @@
+import { domain } from "@/utils"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -26,7 +27,7 @@ export default function Home() {
         new URLSearchParams({
           client_id: process.env.ID!,
           response_type: "code",
-          redirect_uri: "http://localhost:3000/callback",
+          redirect_uri: domain(),
           scope: "user-top-read",
         }),
     )
@@ -51,7 +52,7 @@ export default function Home() {
 
           <select
             name="quality"
-            defaultValue="64"
+            defaultValue="300"
             className="rounded border p-2"
           >
             <option value="640">High</option>
